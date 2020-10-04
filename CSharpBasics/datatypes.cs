@@ -1,0 +1,7 @@
+class Datatypes
+{
+    void LearnDatatypes()
+    {
+        
+    }
+}
