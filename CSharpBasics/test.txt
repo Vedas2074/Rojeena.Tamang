@@ -1,1 +1,9 @@
 hello this is test text file 
+
+git clone 'url'
+
+git add .
+git commit 'msg'
+git push 
+/*for check it is marked or not*/
+git status 
