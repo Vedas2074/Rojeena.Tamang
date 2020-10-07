@@ -1,21 +1,24 @@
-﻿using System;
-
-namespace CSharpBasics
+﻿using LearningClasses;
+using System;
+class Program
 {
-    class Program
-    {
-        // static void Main(string[] args)
-        // {
-        //     // // Console.WriteLine("Hello World!");
-        //     // // Console.WriteLine("Bipn is very good person.");
-        //     // Console.WriteLine("What is Your name:");
-        //     // string name = Console.ReadLine();
+    static void Main2342()
+    {       
+        var person1 = new Person("Bishnu", "Ktm");
+        var person2 = new Person("Ramesh", "Bhaktapur", 23);
+        var person3 = new Person("Rame", "Bhaktapur", 20);
+        var person4 = new Person();
+        // Accessing static members
+        var x = Person.ScientificName;
+        Person.Do();
+        var y = Math.Sqrt(342);
 
-        //     // Console.WriteLine("Hello " + name);
+        var s1 = Calculator.Sum<int>(23, 34);
+        var s2 = Calculator.Sum<decimal>(233443.23m, 34344656.1m);
 
-
-        //     SelectionStatement selectionstatement = new SelectionStatement();
-        //     selectionstatement.LearnIfElse();
-        // }
+        Rectangle rectangle = new Rectangle();
+        rectangle.Length = 23.6;
+        rectangle.Breadth = 6.32;
+        var result = rectangle.GetArea();
     }
 }
