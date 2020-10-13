@@ -3,115 +3,86 @@ using System;
 public abstract class Shape
 {
     public abstract double GetArea();
+    public abstract double GetPerimeter();
 
-     public abstract double GetPerimeter();
-
-     public void PrintDetails()
-     {
-         Console.WriteLine("Printing details for shape");
-     }
-
+    public virtual void PrintDetails()
+    {
+        Console.WriteLine("Printing details for shape...");
+    }
 }
 
 public interface IDiagonalComputable
 {
-    public double GetDiagonalLength() => Math.Sqrt(Length * Length + Breadth * Breadth);
+    public double GetDiagonalLength();
 }
 
-public class Square : Shape 
+public class Rectangle : Shape, IDiagonalComputable
 {
-    public double Side {get; set;}
-    public override double GetArea()
+    public Rectangle(double l, double b)
     {
-        return Side*Side;
+        this.Length = l;
+        this.Breadth = b;
     }
 
-    public override double GetPerimeter()
+    public double Length { get; set; }
+    public double Breadth { get; set; }
+    public override double GetArea() => Length * Breadth;
+    public double GetDiagonalLength() => Math.Sqrt(Length * Length + Breadth * Breadth);
+    public override double GetPerimeter() => 2 * (Length + Breadth);
+
+    public override void PrintDetails()
     {
-        return 4 * Side;
+        Console.WriteLine("Printing details for Reactangle:");
+        Console.WriteLine($"Lenght: {Length}, Breadth: {Breadth}");
+        Console.WriteLine($"Area: {this.GetArea()}, Perimeter: {this.GetPerimeter()}");
     }
+}
 
-    public class Rectangle : Shape 
-    {
-
-        //public Rectangle(){}
-        public Rectangle(double l,double b)
-        {
-            this.Length = l;
-            this.Breadth = b;
-        }
-        public double Length { get; set; }
-
-        public double Breadth { get; set; }
-
-        public override double GetPerimeter() => 2 * (Length * Breadth);
-
-        public override double GetArea() => Length * Breadth;
-
-         public void PrintDetails()
-     {
-         Console.WriteLine("Printing details for Rectangle");
-         Console.WriteLine($"Length : {Length}, Breadth : {Breadth}");
-         Console.WriteLine($"Area : {this.GetArea()}, Perimeter: {this.GetPerimeter()}");
-     }
-    }
-
-    public class Square : Rectangle
+public class Square : Rectangle
 {
-    public double Side { get; set; }
-    public Square(double s) : base(s,s)
-    {
-
-    }
-    
+    public Square(double s) : base(s, s)
+    {        
+    }    
 }
 
 public class Circle : Shape
 {
-
     public Circle(double r)
     {
         Radius = r;
     }
+
     public double Radius { get; set; }
     public override double GetArea() => Math.PI * Radius * Radius;
     public override double GetPerimeter() => 2 * Math.PI * Radius;
 }
 
 
-    //single inheritance
-    //Multilevel inheritance
-    //Multiple inheritance
+//Single inheritance
+//Multilevel inheritance
+//Multiple inheritance
 
-    class A 
-    {
+class A
+{
+}
 
-    }
+class B
+{
+}
 
-    class B : A
-    {
+class C : B
+{
+}
 
-    }
+// Class- Is-a relationship, Interface - Has-a relationship
+class D: A, IX, IY
+{
+}
 
-    class C : B
-    {
+interface IX
+{
+}
 
-    }
-
-    class D : A ,IX,IY
-    {
-
-    }
-
-    interface IX
-    {
-
-    }
-
-    interface IY
-    {
-
-    }
-
-      
+interface IY
+{
 }
