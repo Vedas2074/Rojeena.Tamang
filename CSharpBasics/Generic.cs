@@ -1,7 +1,7 @@
-public class Calculator
+public class Generic
 {
-    public stataic int Sum<T>(int firstNum, int secondNum)
+    public static T Sum<T>(T firstNum, T secondNum)
     {
-        return firstNum + secondNum;
+        return firstNum;
     }
 }
