@@ -1,4 +1,5 @@
-﻿using LearningClasses;
+﻿using FileDirectoryHandling;
+using LearningClasses;
 using System;
 
 class Program
@@ -35,8 +36,6 @@ class Program
 
         FileIO file = new FileIO();
         file.LearnFileWriting();
-
-        FIleIO file = new FIleIO();
         file.LearnFileInfo();
     }
 }

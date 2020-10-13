@@ -13,7 +13,7 @@ namespace FileDirectoryHandling
 
         public void LearnFileWriting()
         {
-            File.WriteAllText("A.txt");
+            File.WriteAllText("A.txt","Hello");
         }
 
         public void LearnFileInfo()
